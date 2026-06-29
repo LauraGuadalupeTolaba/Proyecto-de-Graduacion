@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marco de Referencia — Identidad Portuaria de Mar del Plata</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rojo: #E17426;
+    --rojo-suave: #E17426;
+    --negro: #111111;
+    --gris-oscuro: #2A2A2A;
+    --gris-medio: #5A5A5A;
+    --caramel-powder: #EDBA97;
+    --gris-claro :#ABABAB;
+    --arena: #F2EFE8;
+    --blanco: #FAFAF8;
+    --linea: #DADAD5;
+    --serif: 'Cardo', Georgia, serif;
+    --sans: 'Montserrat', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--blanco);
+    color: var(--negro);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+  }
+
+  /* ————— CABECERA ————— */
+  .cabecera {
+    border-top: 3px solid var(--negro);
+    border-bottom: 1px solid var(--linea);
+    padding: 32px 0 24px;
+    margin-bottom: 60px;
+  }
+
+  .cabecera-meta {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gris-medio);
+    margin-bottom: 16px;
+  }
+
+  .cabecera-titulo {
+    font-family: var(--serif);
+    font-size: 52px;
+    line-height: 1.05;
+    font-weight: 400;
+    color: var(--negro);
+    margin-bottom: 16px;
+  }
+
+  .cabecera-titulo em {
+    color: var(--rojo);
+    font-style: italic;
+  }
+
+  .cabecera-subtitulo {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--gris-medio);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .cabecera-pregunta {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--gris-oscuro);
+    border-left: 3px solid var(--rojo);
+    padding-left: 20px;
+    line-height: 1.4;
+  }
+
+  /* ————— DIVISOR DE SECCIÓN ————— */
+  .seccion-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 8px;
+  }
+
+  /* ————— ETAPAS ————— */
+  .etapa {
+    margin-bottom: 0;
+    border-top: 1px solid var(--linea);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
+  }
+
+  .etapa:last-of-type {
+    border-bottom: 1px solid var(--linea);
+  }
+
+  /* Layout de dos columnas para cada etapa */
+  .etapa-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0 48px;
+    align-items: start;
+  }
+
+  .etapa-izquierda {
+    position: sticky;
+    flex-shrink: 0;
+    top: 40px;
+    width: 220px;
+    scrollbar-width: none;
+  }
+
+  .etapa-izquierda::-webkit-scrollbar{
+    display: none;
+  }
+
+  .etapa-numero {
+    font-family: var(--serif);
+    font-size: 90px;
+    line-height: 0.9;
+    font-weight: 400;
+    color: var(--rojo);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .etapa-periodo {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--gris-medio);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .etapa-nombre {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--negro);
+    margin-bottom: 20px;
+  }
+
+  .etapa-imagen-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--arena);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .etapa-imagen-texto {
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--gris-claro);
+    text-align: center;
+    padding: 8px;
+  }
+
+  .etapa-contenedor{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .etapa-imagen-img{
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  figcaption{
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 200;
+    color: var(--gris-medio);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* Columna derecha */
+  .etapa-derecha {
+    position: sticky;
+    top: 20px;
+  }
+
+  /* Apartados dentro de la columna derecha */
+  .apartado {
+    margin-bottom: 28px;
+  }
+
+  .apartado:last-child {
+    margin-bottom: 0;
+  }
+
+  .apartado-titulo {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--caramel-powder);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .apartado-texto {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--gris-oscuro);
+    text-align: justify;
+  }
+
+  .apartado-texto strong {
+    color: var(--negro);
+    font-weight: 500;
+  }
+
+  /* Tags de actores */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border: 1px solid var(--linea);
+    color: var(--gris-oscuro);
+    letter-spacing: 0.03em;
+  }
+
+  /* Punto de inflexión */
+  .inflexion {
+    background: var(--negro);
+    color: var(--blanco);
+    padding: 20px 24px;
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .inflexion-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo-suave);
+    margin-bottom: 8px;
+  }
+
+  .inflexion-texto {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--blanco);
+  }
+
+  /* Cultura material — grilla visual */
+  .material-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--linea);
+    border: 1px solid var(--linea);
+    margin-top: 4px;
+  }
+
+  .material-item {
+    background: var(--blanco);
+    padding: 10px 12px;
+  }
+
+  .material-item-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rojo);
+    margin-bottom: 3px;
+  }
+
+  .material-item-texto {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--gris-oscuro);
+    line-height: 1.5;
+  }
+
+  /* Lenguaje visual — bloques de color */
+  .visual-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .visual-bloque {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border: 1px solid var(--linea);
+  }
+
+  .visual-color {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .visual-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--gris-oscuro);
+  }
+
+  /* ————— ANÁLISIS INTEGRADOR ————— */
+  .integrador {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 3px solid var(--negro);
+  }
+
+  .integrador-cabecera {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0 48px;
+    margin-bottom: 48px;
+  }
+
+  .integrador-titulo-grande {
+    font-family: var(--serif);
+    font-size: 64px;
+    line-height: 0.95;
+    font-weight: 400;
+    color: var(--negro);
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+  }
+
+  .integrador-titulo-grande em {
+    color: var(--rojo);
+    font-style: italic;
+  }
+
+  .pregunta-bloque {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .pregunta-bloque:last-child {
+    border-bottom: none;
+  }
+
+  .pregunta-bloque h3 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 12px;
+  }
+
+  .pregunta-bloque p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--gris-oscuro);
+  }
+
+  /* Tensiones */
+  .tensiones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .tension-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--linea);
+  }
+
+  .tension-vs {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--rojo);
+    flex-shrink: 0;
+  }
+
+  .tension-texto {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--gris-oscuro);
+    line-height: 1.4;
+  }
+
+  /* ————— ESFERAS DE VALOR ————— */
+  .esferas {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 3px solid var(--negro);
+  }
+
+  .esfera-titulo-seccion {
+    font-family: var(--serif);
+    font-size: 44px;
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--negro);
+    margin-bottom: 40px;
+  }
+
+  .esfera-titulo-seccion em {
+    color: var(--rojo);
+    font-style: italic;
+  }
+
+  .esfera-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+  }
+
+  .esfera-tabla th {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--negro);
+    background: var(--blanco);
+  }
+
+  .esfera-tabla td {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--gris-oscuro);
+    padding: 14px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--linea);
+    line-height: 1.55;
+  }
+
+  .esfera-nombre {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--negro);
+    white-space: nowrap;
+  }
+
+  .esfera-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    background: var(--rojo);
+    color: var(--blanco);
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  /* ————— CIERRE METODOLÓGICO ————— */
+  .cierre {
+    margin-top: 60px;
+    background: var(--negro);
+    color: var(--blanco);
+    padding: 56px 48px;
+  }
+
+  .cierre-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rojo-suave);
+    margin-bottom: 24px;
+  }
+
+  .cierre-fenomeno {
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 400;
+    color: var(--blanco);
+    margin-bottom: 40px;
+    border-left: 3px solid var(--rojo);
+    padding-left: 24px;
+  }
+
+  .cierre-pregunta-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+    margin-bottom: 10px;
+  }
+
+  .cierre-justificacion {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.55;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ————— BIBLIOGRAFÍA ————— */
+  .biblio {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--linea);
+  }
+
+  .biblio h2 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+    margin-bottom: 20px;
+  }
+
+  .biblio p {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--gris-medio);
+    line-height: 1.7;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    text-indent: -20px;
+  }
+
+  /* ————— FOOTER ————— */
+  .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--linea);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer p {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--gris-claro);
+    letter-spacing: 0.05em;
+  }
+
+  /* ————— RESPONSIVE ————— */
+  @media (max-width: 700px) {
+    body { padding: 32px 20px 80px; }
+    .etapa-layout { grid-template-columns: 1fr; }
+    .cabecera-titulo { font-size: 36px; }
+    .etapa-numero { font-size: 64px; }
+    .integrador-titulo-grande { font-size: 40px; }
+    .tensiones-grid { grid-template-columns: 1fr; }
+    .material-grid { grid-template-columns: 1fr 1fr; }
+    .etapa-izquierda { position: static; }
+    .integrador-cabecera { grid-template-columns: 1fr; }
+  }
+
+  /* Print */
+  @media print {
+    .etapa-izquierda { position: static; }
+    body { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CABECERA -->
+<header class="cabecera">
+  <p class="cabecera-meta">Proyecto de Graduación — Diseño Textil · Marco de Referencia · 2026</p>
+  <h1 class="cabecera-titulo">Identidad Portuaria<br>y <em>Cultura Pesquera</em><br>de Mar del Plata</h1>
+  <p class="cabecera-subtitulo">Línea de Tiempo de Transformaciones — Marco de Referencia. No es una cronología de hechos sino un análisis de transformaciones que justifican el fenómeno de investigación.</p>
+  <p class="cabecera-pregunta">¿Cómo se transformó la identidad portuaria de Mar del Plata desde sus orígenes hasta la actualidad?</p>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     ETAPA 1
+═══════════════════════════════════════════ -->
+<section class="etapa">
+  <div class="etapa-layout">
+    <div class="etapa-izquierda">
+      <div class="etapa-numero">1870<span style="color:var(--gris-claro)">—</span></div>
+      <p class="etapa-periodo">1870 – 1913</p>
+      <h2 class="etapa-nombre">Nacimiento de una identidad<br>en el margen del mar</h2>
+      <figure>
+        <img src="imagenes/1870-1913/elSaladero.jpg" alt="El Saladero, parte del mural del pintor Fausto Eliseo Coppini." class="etapa-imagen-img">
+        <figcaption>El Saladero, parte del mural del pintor Fausto Eliseo Coppini.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1870-1913/Saladero1880.jpg" alt="El Saladero 1880." class="etapa-imagen-img">
+        <figcaption>El Saladero 1880.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1870-1913/lanchas pesqueras 2 en Playa Bristol 1900-enrique palacio.png" alt="Lanchas pesqueras en Playa Bristol 1900" class="etapa-imagen-img">
+        <figcaption>Lanchas pesqueras en Playa Bristol 1900.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1870-1913/lanchas pesqueras en Playa Pescadores (varese)-virginia ruiz barlett.png" alt="Lanchas pesqueras en Playa Pescadores" class="etapa-imagen-img">
+        <figcaption>Lanchas pesqueras en Playa Pescadores.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1870-1913/lanchas pesqueras en las toscas 1910-jose lago.png" alt="Lanchas pesqueras en Las Toscas." class="etapa-imagen-img">
+        <figcaption>Lanchas pesqueras en Las Toscas 1910.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1870-1913/pescadores con red a caballo 1910-angel somma.png" alt="Pescadores con red a caballo." class="etapa-imagen-img">
+        <figcaption>Pescadores con red a caballo.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1870-1913/Las Toscas 1910-enrique palacio.png" alt="Las Toscas 1910" class="etapa-imagen-img">
+        <figcaption>Las Toscas 1910.</figcaption>
+      </figure>
+    </div>
+
+    <div class="etapa-derecha">
+      <div class="apartado">
+        <p class="apartado-titulo">Contexto</p>
+        <p class="apartado-texto">Mar del Plata se funda en 1874 como proyecto agropecuario y saladero. El litoral atlántico era percibido como periferia productiva, sin infraestructura portuaria organizada. Argentina atravesaba el ciclo agroexportador y el Estado promovía la colonización del territorio bonaerense. Los primeros muelles eran precarios, improvisados sobre la orilla.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Transformaciones</p>
+        <p class="apartado-texto">La demanda turística incipiente —familias porteñas que veraneaban— generó la primera demanda de pescado fresco, <strong>convirtiendo la pesca de subsistencia en actividad comercial</strong>. Eso atrajo a los primeros pescadores italianos del sur peninsular, quienes reprodujeron en el litoral bonaerense los oficios del Mediterráneo. La actividad no fue planificada por el Estado sino emergente: el mercado turístico creó el oficio antes que la infraestructura lo sostuviera.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Actores</p>
+        <div class="tags">
+          <span class="tag">Inmigrantes italianos (Campania, Sicilia)</span>
+          <span class="tag">Familias turistas porteñas</span>
+          <span class="tag">Saladeros y estancieros</span>
+          <span class="tag">Estado provincial</span>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Cultura material</p>
+        <div class="material-grid">
+          <div class="material-item">
+            <div class="material-item-label">Embarcaciones</div>
+            <div class="material-item-texto">Lanchas de madera artesanal, trasladadas del Mediterráneo</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Redes</div>
+            <div class="material-item-texto">Redes de algodón, tejidas a mano por las mujeres de la colonia</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Indumentaria</div>
+            <div class="material-item-texto">Ropa de lana oscura, botas de goma importadas, sin uniformidad</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Infraestructura</div>
+            <div class="material-item-texto">Muelles de madera, depósitos improvisados, casillas de chapa</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Herramientas</div>
+            <div class="material-item-texto">Palangres, nasas, anzuelos artesanales, baldes</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Colores</div>
+            <div class="material-item-texto">Sin paleta definida — madera natural, negro del alquitrán, lona cruda</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Lenguaje visual</p>
+        <div class="visual-grid">
+          <div class="visual-bloque"><div class="visual-color" style="background:#4A3728"></div><span class="visual-label">Madera oscura — cascos y muelles</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#1C2B3A"></div><span class="visual-label">Azul Atlántico — paisaje natural</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#9B8E7E"></div><span class="visual-label">Lona y soga — materiales de oficio</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#D4C8B0"></div><span class="visual-label">Arena y sal — textura del entorno</span></div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Valores culturales</p>
+        <p class="apartado-texto"><strong>Supervivencia y adaptación</strong>: los pescadores italianos reconstruyeron su oficio en condiciones adversas. <strong>Comunidad étnica cerrada</strong>: la colonia italiana operó como red de solidaridad. <strong>Conocimiento transmitido oralmente</strong> entre generaciones.</p>
+      </div>
+
+      <div class="inflexion">
+        <p class="inflexion-label">Punto de inflexión</p>
+        <p class="inflexion-texto">La demanda turística convierte la pesca de subsistencia en oficio comercial y transforma al inmigrante italiano en fundador de una identidad portuaria distintiva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ETAPA 2
+═══════════════════════════════════════════ -->
+<section class="etapa">
+  <div class="etapa-layout">
+    <div class="etapa-izquierda">
+      <div class="etapa-numero">1913<span style="color:var(--gris-claro)">—</span></div>
+      <p class="etapa-periodo">1913 – 1950</p>
+      <h2 class="etapa-nombre">Construcción del<br>puerto y consolidación<br>de la comunidad</h2>
+      <figure>
+        <img src="imagenes/1913-1950/construcción en el puerto de Mar del Plata.jpg" alt="Construcción del Puerto de Mar del Plata" class="etapa-imagen-img">
+        <figcaption>Construcción en el puerto de Mar del Plata.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/construcción.jpg" alt="Construccion del Puerto." class="etapa-imagen-img">
+        <figcaption>Construcción de la Banquina.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/Antigua postal Dársena de Pescadores.jpg" alt="Dársena de los Pescadores" class="etapa-imagen-img">
+        <figcaption>Dársena de Pescadores.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/La Pesca en Mar del Plata ,Punta Iglesia año 1920.jpg" alt="La pesca, Punta Iglesia 1920" class="etapa-imagen-img">
+        <figcaption>La pesca en Mar del Plata,Punta Iglesia año 1920. </figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/“Piletas y muelle Lavorante destruídos por el temporal de 1924″. Héctor Villagra.jpg" alt="Piletas y muelle Lavorante destruídos por el temporal de 1924" class="etapa-imagen-img">
+        <figcaption>Piletas y muelle Lavorante destruidos por el temporal de 1924.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/Lanchas – Pescadores – Banquina Puerto  - 16 de marzo de 1939 – Enviada por Jorge Redondo.jpg" alt="Lanchas Pescadores, Banquina 1939" class="etapa-imagen-img">
+        <figcaption>Lancha Pescadores, Banquina de los Pescadores 1939.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/Carmelo D´Angiolo y compañeros, década del 40, banquina de pescadores.png" alt="Pescadores 1940." class="etapa-imagen-img">
+        <figcaption>Pescadores 1940.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/banquina en 1940. Enviada por Pedro Maccaferro.jpg" alt="Banquina en 1940." class="etapa-imagen-img">
+        <figcaption>Banquina en 1940.</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/1913-1950/Lanchas – Pescadores – Banquina Puerto – Enero de 1943 – Enviada por Jorge Redondo.jpg" alt="Lanchas en la Banquina 1943" class="etapa-imagen-img">
+        <figcaption>Lanchas en la Banquina del Puerto 1943.</figcaption>      
+      </figure>
+    </div>
+
+    <div class="etapa-derecha">
+      <div class="apartado">
+        <p class="apartado-titulo">Contexto</p>
+        <p class="apartado-texto">El 24 de febrero de 1913 se coloca la piedra fundamental del puerto moderno, inaugurado oficialmente en 1924. Argentina impulsaba la modernización de su infraestructura exportadora. La Segunda Guerra Mundial (1939–1945) impactó en los mercados pesqueros mundiales y aceleró la demanda de conservas y pescado salado.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Transformaciones</p>
+        <p class="apartado-texto">La construcción de las escolleras Norte y Sur creó un <strong>espacio físico delimitado</strong> que ordenó y concentró la actividad pesquera. La Guerra Mundial disparó la producción conservera, atrayendo capital industrial al puerto. La Tormenta de Santa Rosa de 1946 —tragedia que costó numerosas vidas de pescadores— fue un punto de quiebre cultural: <strong>todas las lanchas pasaron a pintarse de amarillo intenso</strong> como medida de visibilidad y señal de unidad comunitaria ante la pérdida colectiva.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Actores</p>
+        <div class="tags">
+          <span class="tag">Colonia italiana "Piccola Italia"</span>
+          <span class="tag">Estado nacional (obras públicas)</span>
+          <span class="tag">Industria conservera</span>
+          <span class="tag">Armadores locales</span>
+          <span class="tag">Pescadores artesanales</span>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Cultura material</p>
+        <div class="material-grid">
+          <div class="material-item">
+            <div class="material-item-label">Embarcaciones</div>
+            <div class="material-item-texto">Lanchas de madera entre 9 y 15 metros — eslora y manga estandarizadas</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Color icónico</div>
+            <div class="material-item-texto">Amarillo intenso: marca de identidad nacida del duelo y la seguridad</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Infraestructura</div>
+            <div class="material-item-texto">Escolleras de hormigón, muelles de piedra, varaderos, talleres navales</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Redes</div>
+            <div class="material-item-texto">Paso al algodón industrial; redes más grandes para capturas mayores</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Casillas portuarias</div>
+            <div class="material-item-texto">Viviendas de chapa y madera dentro del puerto — arquitectura espontánea</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Indumentaria</div>
+            <div class="material-item-texto">Traje de agua, botas de goma largas, gorras de lana oscura, delantales</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Lenguaje visual</p>
+        <div class="visual-grid">
+          <div class="visual-bloque"><div class="visual-color" style="background:#F2C200"></div><span class="visual-label">Amarillo lancha — símbolo identitario</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#2C3E50"></div><span class="visual-label">Azul marino — uniformes y mar</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#7D8B72"></div><span class="visual-label">Verde oliva — redes y sogas</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#B5A89A"></div><span class="visual-label">Gris piedra — escolleras</span></div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Valores culturales</p>
+        <p class="apartado-texto"><strong>Memoria colectiva del duelo</strong> (Tormenta 1946). <strong>Solidaridad comunitaria</strong>: el amarillo como acto de pertenencia. <strong>Orgullo del oficio</strong>: la "Piccola Italia" portuaria como comunidad cerrada y autosuficiente. <strong>Masculinidad del trabajo duro en el mar.</strong></p>
+      </div>
+
+      <div class="inflexion">
+        <p class="inflexion-label">Punto de inflexión</p>
+        <p class="inflexion-texto">La tragedia de 1946 cristaliza el color amarillo como símbolo de identidad colectiva — el puerto deja de ser un espacio funcional para convertirse en un territorio de pertenencia emocional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ETAPA 3
+═══════════════════════════════════════════ -->
+<section class="etapa">
+  <div class="etapa-layout">
+    <div class="etapa-izquierda">
+      <div class="etapa-numero">1950<span style="color:var(--gris-claro)">—</span></div>
+      <p class="etapa-periodo">1950 – 1975</p>
+      <h2 class="etapa-nombre">Industrialización<br>pesquera y apogeo<br>productivo</h2>
+    </div>
+
+    <div class="etapa-derecha">
+      <div class="apartado">
+        <p class="apartado-titulo">Contexto</p>
+        <p class="apartado-texto">Durante el primer peronismo se inauguró el complejo portuario-industrial con instalaciones frigoríficas (1950). El modelo sustitutivo de importaciones promovió la industria nacional. Las capturas pasaron de 18.203 toneladas en 1947 a 59.127 en 1954, convirtiendo al puerto en <strong>el principal puerto pesquero de Sudamérica</strong> durante esa década.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Transformaciones</p>
+        <p class="apartado-texto">La industrialización desplazó parcialmente a la pesca artesanal: <strong>el oficio artesanal coexistió con la producción a escala industrial</strong>. Surgieron cooperativas y sindicatos pesqueros que organizaron laboralmente a los trabajadores del mar. Las plantas frigoríficas y de procesamiento transformaron el espacio portuario en un complejo fabril. La flota se diversificó: lanchas costeras convivieron con barcos de altura de mayor tonelaje.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Actores</p>
+        <div class="tags">
+          <span class="tag">Sindicatos pesqueros (SOMU, SOIP)</span>
+          <span class="tag">Cooperativas de pescadores</span>
+          <span class="tag">Industria frigorífica</span>
+          <span class="tag">Armadores industriales</span>
+          <span class="tag">Trabajadoras de filet</span>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Cultura material</p>
+        <div class="material-grid">
+          <div class="material-item">
+            <div class="material-item-label">Embarcaciones</div>
+            <div class="material-item-texto">Barcos de altura de acero + lanchas amarillas artesanales — dualidad</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Redes</div>
+            <div class="material-item-texto">Redes de nylon industrial, arrastre de fondo, mayor volumen</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Tecnología</div>
+            <div class="material-item-texto">Cámaras frigoríficas, grúas eléctricas, cargadores laterales</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Indumentaria laboral</div>
+            <div class="material-item-texto">Delantales de goma, botas largas, guantes de látex — vestimenta de fábrica</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Arquitectura</div>
+            <div class="material-item-texto">Galpones industriales, silos, chimeneas — perfil fabril del horizonte portuario</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Olores y texturas</div>
+            <div class="material-item-texto">Aceite de pescado, hielo, sal, metal oxidado — sensorialidad industrial</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Lenguaje visual</p>
+        <div class="visual-grid">
+          <div class="visual-bloque"><div class="visual-color" style="background:#F2C200"></div><span class="visual-label">Amarillo — lanchas artesanales (resistencia)</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#7A8B6E"></div><span class="visual-label">Verde fabril — galpones y silos</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#8C8C8C"></div><span class="visual-label">Gris acero — barcos industriales</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#C4503A"></div><span class="visual-label">Rojo óxido — estructuras metálicas</span></div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Valores culturales</p>
+        <p class="apartado-texto"><strong>Productividad y progreso</strong>: el puerto como motor económico de la ciudad. <strong>Solidaridad gremial</strong>: emergencia de la organización sindical. <strong>Trabajo como dignidad</strong>: la figura del pescador/obrero como sujeto político. <strong>Tensión entre artesanía e industria</strong>: primer conflicto entre tradición y modernización.</p>
+      </div>
+
+      <div class="inflexion">
+        <p class="inflexion-label">Punto de inflexión</p>
+        <p class="inflexion-texto">El puerto se convierte en el primer centro pesquero-industrial de Sudamérica, pero esa escala industrial planta la semilla de la contradicción que definirá las décadas siguientes: productividad vs. sustentabilidad del oficio artesanal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ETAPA 4
+═══════════════════════════════════════════ -->
+<section class="etapa">
+  <div class="etapa-layout">
+    <div class="etapa-izquierda">
+      <div class="etapa-numero">1980<span style="color:var(--gris-claro)">—</span></div>
+      <p class="etapa-periodo">1980 – 2000</p>
+      <h2 class="etapa-nombre">Crisis estructural<br>y deterioro del<br>territorio portuario</h2>
+    </div>
+
+    <div class="etapa-derecha">
+      <div class="apartado">
+        <p class="apartado-titulo">Contexto</p>
+        <p class="apartado-texto">Las décadas de 1980 y 1990 marcaron las más profundas transformaciones estructurales de la pesca argentina. El modelo neoliberal redujo drásticamente la inversión estatal en infraestructura. La sobreexplotación pesquera —especialmente del merluza— generó crisis de stock. La retracción del Estado y la privatización del Consorcio Portuario (Decreto 3572/99) fragmentaron la gobernanza del espacio portuario.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Transformaciones</p>
+        <p class="apartado-texto">La crisis impactó directamente en las <strong>lanchas amarillas</strong>: de las 280 embarcaciones en operación, comenzó una caída sostenida hasta llegar a menos de 15 en la actualidad. El espacio portuario se deterioró física y ambientalmente. La externalización de costos por parte de los privados generó contaminación y abandono de infraestructura. <strong>El puerto dejó de ser un espacio de progreso para convertirse en un espacio en conflicto.</strong></p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Actores</p>
+        <div class="tags">
+          <span class="tag">Estado neoliberal (retracción)</span>
+          <span class="tag">Empresas pesqueras privadas</span>
+          <span class="tag">Sindicatos en conflicto (SOMU)</span>
+          <span class="tag">Pescadores artesanales (resistencia)</span>
+          <span class="tag">Consorcio Portuario (desde 1999)</span>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Cultura material</p>
+        <div class="material-grid">
+          <div class="material-item">
+            <div class="material-item-label">Lanchas</div>
+            <div class="material-item-texto">Deterioro progresivo — algunas abandonadas, pintura descascarada</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Infraestructura</div>
+            <div class="material-item-texto">Galpones abandonados, óxido, muelles sin mantenimiento</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Tecnología</div>
+            <div class="material-item-texto">Barcos congeladores de alta tecnología vs. lanchas sin actualización</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Redes</div>
+            <div class="material-item-texto">Nylon sintético; redes de arrastre intensivo — impacto ambiental visible</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Ambiente</div>
+            <div class="material-item-texto">Deterioro ambiental: aceites, residuos, contaminación del agua</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Espacio social</div>
+            <div class="material-item-texto">Reducción de la comunidad portuaria activa — envejecimiento del oficio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Lenguaje visual</p>
+        <div class="visual-grid">
+          <div class="visual-bloque"><div class="visual-color" style="background:#C4503A"></div><span class="visual-label">Óxido y deterioro</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#B8A890"></div><span class="visual-label">Amarillo desvaneciéndose</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#4A5A4A"></div><span class="visual-label">Verde musgo — abandono</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#2A2A2A"></div><span class="visual-label">Negro — espacio en sombra</span></div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Valores culturales</p>
+        <p class="apartado-texto"><strong>Resistencia</strong>: los últimos pescadores artesanales como guardianes de un oficio amenazado. <strong>Nostalgia activa</strong>: la comunidad comienza a narrar su historia como patrimonio que se pierde. <strong>Conflicto gremial</strong> como expresión de la tensión entre capital industrial y trabajo artesanal. <strong>Invisibilización</strong>: el puerto como espacio ignorado por el proyecto turístico de la ciudad.</p>
+      </div>
+
+      <div class="inflexion">
+        <p class="inflexion-label">Punto de inflexión</p>
+        <p class="inflexion-texto">El deterioro neoliberal convierte la crisis productiva en crisis identitaria: la desaparición de las lanchas amarillas deja de ser un problema económico para convertirse en una amenaza al patrimonio cultural de Mar del Plata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ETAPA 5
+═══════════════════════════════════════════ -->
+<section class="etapa">
+  <div class="etapa-layout">
+    <div class="etapa-izquierda">
+      <div class="etapa-numero">2000<span style="color:var(--gris-claro)">—</span></div>
+      <p class="etapa-periodo">2000 – 2020</p>
+      <h2 class="etapa-nombre">Revalorización<br>patrimonial y<br>turistificación</h2>
+    </div>
+
+    <div class="etapa-derecha">
+      <div class="apartado">
+        <p class="apartado-titulo">Contexto</p>
+        <p class="apartado-texto">La crisis de 2001 en Argentina produjo una búsqueda de identidades locales como anclaje frente a la incertidumbre. El turismo cultural y patrimonial emergió como alternativa económica para ciudades costeras. Mar del Plata comenzó a revalorizar su zona portuaria como atractivo diferencial. La Fiesta de los Pescadores fue declarada de Interés Nacional. El documental <em>Los últimos</em> (2023) visibilizó el estado crítico de las lanchas amarillas.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Transformaciones</p>
+        <p class="apartado-texto">La identidad portuaria pasó de ser <strong>vivida desde adentro</strong> (comunidad de pescadores) a ser <strong>narrada desde afuera</strong> (turismo, academia, medios). Las lanchas amarillas se convirtieron en objeto museístico: la Defensoría del Pueblo impulsó su preservación como "patrimonio cultural, social, histórico y paisajístico". La Universidad Nacional de Mar del Plata se involucró en la documentación del oficio. Emergió una economía del turismo portuario: restaurantes de pescado, visitas guiadas, mercados de artesanías.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Actores</p>
+        <div class="tags">
+          <span class="tag">Defensoría del Pueblo</span>
+          <span class="tag">Concejo Deliberante</span>
+          <span class="tag">Universidad Nacional de Mar del Plata</span>
+          <span class="tag">Realizadores audiovisuales</span>
+          <span class="tag">Turistas culturales</span>
+          <span class="tag">Últimos pescadores artesanales</span>
+          <span class="tag">Emprendedores gastronómicos</span>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Cultura material</p>
+        <div class="material-grid">
+          <div class="material-item">
+            <div class="material-item-label">Lanchas</div>
+            <div class="material-item-texto">Objeto patrimonial amenazado — 12 a 14 operativas en 2024</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Señalética</div>
+            <div class="material-item-texto">Cartelería turística, murales, códigos QR informativos</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Gastronomía</div>
+            <div class="material-item-texto">Restaurantes de mariscos como extensión de la cultura material pesquera</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Artesanías</div>
+            <div class="material-item-texto">Souvenirs inspirados en el puerto: redes, anzuelos, colores del mar</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Audiovisual</div>
+            <div class="material-item-texto">Documentales, fotografía de archivo, producción universitaria</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Espacio público</div>
+            <div class="material-item-texto">Banquina de pescadores como paisaje turístico más que productivo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Lenguaje visual</p>
+        <div class="visual-grid">
+          <div class="visual-bloque"><div class="visual-color" style="background:#F2C200"></div><span class="visual-label">Amarillo — símbolo patrimonial</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#1A4B6E"></div><span class="visual-label">Azul institucional — señalética turística</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#D4A96A"></div><span class="visual-label">Ocre — artesanías y gastronomía</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#E8E4DC"></div><span class="visual-label">Crudo — nostalgia y archivo</span></div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Valores culturales</p>
+        <p class="apartado-texto"><strong>Patrimonio</strong>: la cultura pesquera como bien a conservar. <strong>Nostalgia</strong>: el pasado productivo como referencia de autenticidad. <strong>Memoria colectiva</strong>: el oficio pesquero como parte de la identidad urbana de Mar del Plata. <strong>Tensión entre conservación y espectacularización</strong>: ¿el turismo salva o consume la identidad portuaria?</p>
+      </div>
+
+      <div class="inflexion">
+        <p class="inflexion-label">Punto de inflexión</p>
+        <p class="inflexion-texto">La identidad portuaria deja de ser exclusivamente productiva para comenzar a ser entendida como patrimonio cultural — pero ese proceso de patrimonialización es también un proceso de distancia: el puerto se mira más de lo que se vive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ETAPA 6
+═══════════════════════════════════════════ -->
+<section class="etapa">
+  <div class="etapa-layout">
+    <div class="etapa-izquierda">
+      <div class="etapa-numero">2020<span style="color:var(--gris-claro)">—</span></div>
+      <p class="etapa-periodo">2020 – actualidad</p>
+      <h2 class="etapa-nombre">Identidad portuaria<br>en disputa: entre la<br>extinción y el futuro</h2>
+    </div>
+
+    <div class="etapa-derecha">
+      <div class="apartado">
+        <p class="apartado-titulo">Contexto</p>
+        <p class="apartado-texto">Mar del Plata discute actualmente un proyecto de transformación de su zona portuaria hacia un <strong>distrito creativo, gastronómico y residencial</strong> (DAD - Distrito de Arquitectura y Diseño), con modelos de referencia como el HafenCity de Hamburgo o el Puerto Olímpico de Barcelona. Simultáneamente, los últimos pescadores de lanchas amarillas estiman que les quedan "cinco o seis años" de actividad. El Puerto exporta el 60% de la pesca argentina (460.000 toneladas anuales valoradas en 1.500 millones de dólares en 2015), pero su identidad cultural está en proceso de redefinición acelerada.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Transformaciones</p>
+        <p class="apartado-texto">Se produce una <strong>triple tensión contemporánea</strong>: la actividad pesquera industrial sigue siendo el motor económico; la pesca artesanal está en proceso de extinción; y el espacio portuario es objeto de proyectos de renovación urbana que proponen convertirlo en un hub de diseño, gastronomía y turismo. <strong>El diseño emerge como actor en este campo</strong>: la UTN, la UNMdP y el sector creativo están presentes en la producción de identidad portuaria desde nuevas perspectivas.</p>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Actores</p>
+        <div class="tags">
+          <span class="tag">Municipio (proyecto DAD)</span>
+          <span class="tag">Inversores privados</span>
+          <span class="tag">Diseñadores y creativos</span>
+          <span class="tag">Últimos pescadores artesanales</span>
+          <span class="tag">Universidades (UNMdP, UTN)</span>
+          <span class="tag">Comunidad vecinal</span>
+          <span class="tag">Medios y audiovisual</span>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Cultura material</p>
+        <div class="material-grid">
+          <div class="material-item">
+            <div class="material-item-label">Lanchas</div>
+            <div class="material-item-texto">12–14 operativas — objeto entre la extinción productiva y el patrimonio</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Diseño</div>
+            <div class="material-item-texto">Branding territorial, identidad visual del puerto como atractivo urbano</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Textiles</div>
+            <div class="material-item-texto">Ausencia de diseño textil que recupere la cultura material del oficio</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Digital</div>
+            <div class="material-item-texto">Contenido audiovisual, redes sociales, QR — nueva mediación del patrimonio</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Arquitectura</div>
+            <div class="material-item-texto">Torres residenciales, centros culturales — transformación del paisaje</div>
+          </div>
+          <div class="material-item">
+            <div class="material-item-label">Indumentaria</div>
+            <div class="material-item-texto">Sin renovación — la vestimenta pesquera no ha sido resignificada por el diseño</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Lenguaje visual</p>
+        <div class="visual-grid">
+          <div class="visual-bloque"><div class="visual-color" style="background:#F2C200"></div><span class="visual-label">Amarillo — símbolo en disputa</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#1C1C1C"></div><span class="visual-label">Negro contemporáneo — renovación urbana</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#3D7A8A"></div><span class="visual-label">Petróleo — identidad creativa emergente</span></div>
+          <div class="visual-bloque"><div class="visual-color" style="background:#D63B1F"></div><span class="visual-label">Rojo urgencia — extinción inminente</span></div>
+        </div>
+      </div>
+
+      <div class="apartado">
+        <p class="apartado-titulo">Valores culturales</p>
+        <p class="apartado-texto"><strong>Urgencia</strong>: la desaparición del oficio artesanal como ventana que se cierra. <strong>Innovación</strong>: el diseño como posible puente entre tradición y futuro. <strong>Conflicto</strong>: ¿a quién pertenece la identidad portuaria? ¿A los pescadores, a los turistas, a los desarrolladores urbanos o a los diseñadores? <strong>Oportunidad</strong>: el momento de transición como espacio para intervenir desde el diseño.</p>
+      </div>
+
+      <div class="inflexion">
+        <p class="inflexion-label">Punto de inflexión</p>
+        <p class="inflexion-texto">La identidad portuaria de Mar del Plata atraviesa su mayor momento de transformación y vulnerabilidad simultáneas: es el instante exacto en que el diseño puede intervenir para materializar la memoria antes de que se pierda definitivamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ANÁLISIS INTEGRADOR
+═══════════════════════════════════════════ -->
+<section class="integrador">
+  <h2 class="integrador-titulo-grande">Análisis<br><em>Integrador</em></h2>
+
+  <div class="pregunta-bloque">
+    <h3>La transformación más importante de toda la historia del puerto</h3>
+    <p>El desplazamiento más profundo no fue económico ni técnico: fue la <strong>mutación del puerto de espacio productivo habitado a objeto patrimonial observado</strong>. Durante más de un siglo, la identidad portuaria fue construida desde adentro —por los pescadores, sus familias, sus redes de solidaridad étnica y gremial—. Hoy esa identidad es narrada, fotografiada, documentada y proyectada desde afuera: por académicos, turistas, diseñadores y gestores culturales. Esa distancia entre el que vive y el que mira es la transformación estructural que define el presente.</p>
+  </div>
+
+  <div class="pregunta-bloque">
+    <h3>Aspectos que permanecieron constantes</h3>
+    <p>A lo largo de 150 años permanecieron constantes: <strong>la centralidad de la pesca como actividad identitaria</strong> (aunque transformada en escala y método); <strong>el anclaje territorial en la zona sur de la ciudad</strong>; la presencia del mar como marco simbólico y productivo; y <strong>el color amarillo</strong> como símbolo de identidad —nacido de una tragedia, sostenido por una comunidad, y hoy amenazado junto con las embarcaciones que lo portaban—.</p>
+  </div>
+
+  <div class="pregunta-bloque">
+    <h3>Aspectos que desaparecieron</h3>
+    <p>Desapareció la <strong>comunidad portuaria densa y autosuficiente</strong>: las familias que vivían, trabajaban, rezaban y morian en el puerto. Desapareció la transmisión intergeneracional del oficio artesanal. Desapareció la <strong>"Piccola Italia"</strong> como comunidad étnica cohesionada. Y están en proceso de desaparición las lanchas amarillas como embarcaciones operativas —quedando solo como imagen y símbolo, no como herramienta de trabajo—.</p>
+  </div>
+
+  <div class="pregunta-bloque">
+    <h3>Nuevos elementos aparecidos</h3>
+    <p>Aparecieron la patrimonialización como práctica política y académica; el turismo cultural como nuevo usuario del espacio portuario; el diseño y la comunicación visual como productores de identidad territorial; y la <strong>urgencia de la extinción</strong> como motor de intervención creativa. También apareció el conflicto entre la renovación urbana de tipo especulativo y la preservación de la cultura material del oficio.</p>
+  </div>
+
+  <div class="pregunta-bloque">
+    <h3>Tensiones actuales</h3>
+    <div class="tensiones-grid">
+      <div class="tension-item"><span class="tension-vs">VS</span><span class="tension-texto">Tradición artesanal / Renovación urbana e innovación tecnológica</span></div>
+      <div class="tension-item"><span class="tension-vs">VS</span><span class="tension-texto">Patrimonio cultural / Productividad pesquera industrial</span></div>
+      <div class="tension-item"><span class="tension-vs">VS</span><span class="tension-texto">Comunidad pesquera / Turistificación del espacio portuario</span></div>
+      <div class="tension-item"><span class="tension-vs">VS</span><span class="tension-texto">Oficio artesanal / Extinción inminente del saber hacer</span></div>
+      <div class="tension-item"><span class="tension-vs">VS</span><span class="tension-texto">Memoria colectiva / Transformación urbana acelerada</span></div>
+      <div class="tension-item"><span class="tension-vs">VS</span><span class="tension-texto">Identidad desde adentro / Identidad narrada desde afuera</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ESFERAS DE VALOR
+═══════════════════════════════════════════ -->
+<section class="esferas">
+  <h2 class="esfera-titulo-seccion">Relación con las<br><em>Esferas de Valor</em></h2>
+
+  <table class="esfera-tabla">
+    <thead>
+      <tr>
+        <th style="width:22%">Esfera</th>
+        <th>Cómo cada transformación la fortalece o modifica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="esfera-nombre">Identidad Territorial</span></td>
+        <td>Nació con la "Piccola Italia" y se materializó en el color amarillo de las lanchas. Fue erosionada por el neoliberalismo y está en riesgo de ser reemplazada por una identidad turística de consumo. </td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Memoria Colectiva</span></td>
+        <td>La Tormenta de 1946 es el evento fundacional de la memoria portuaria. El documental <em>Los últimos</em> (2023) es la expresión más urgente de esa memoria amenazada. La academia y el diseño hoy son custodios de esa memoria. </td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Comunidad</span></td>
+        <td>Fue densa y autosuficiente durante las etapas 1 a 3. Se fragmentó con la crisis neoliberal. Hoy se intenta reconstruir a través de la patrimonialización, pero es una comunidad que ya no se sostiene sobre el oficio activo sino sobre la memoria compartida.</td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Oficios y Saberes</span></td>
+        <td>El saber pescar con lancha artesanal, remendar redes, leer el mar y mantener una embarcación de madera es un conocimiento en proceso de extinción que no ha sido codificado ni transmitido por el sistema de diseño. </td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Cultura Material</span></td>
+        <td>Transformada profundamente en cada etapa: de madera y algodón a acero y nylon. El amarillo como constante simbólica atraviesa todas las etapas. Hoy la cultura material del oficio no tiene traducción en el sistema de diseño contemporáneo de la ciudad.</td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Producción y Trabajo</span></td>
+        <td>Fue el eje articulador desde 1870 hasta los 90. La crisis neoliberal desarticuló ese eje. Hoy la producción pesquera industrial es enorme en volumen pero opaca en identidad cultural. El trabajo artesanal prácticamente desapareció como categoría vigente. </td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Patrimonio Cultural</span></td>
+        <td>Las lanchas amarillas fueron declaradas patrimonio. La Fiesta de los Pescadores es de Interés Nacional. Pero el patrimonio está siendo gestionado más desde el turismo que desde la comunidad.</td>
+      </tr>
+      <tr>
+        <td><span class="esfera-nombre">Futuro e Innovación</span></td>
+        <td>Es la esfera más abierta: el proyecto DAD propone una renovación urbana del puerto. El diseño textil puede ser una forma de innovación que no niegue la tradición sino que la materialice en nuevos objetos, productos y narrativas con anclaje en la cultura pesquera.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CIERRE METODOLÓGICO
+═══════════════════════════════════════════ -->
+<div class="cierre">
+  <p class="cierre-label">Cierre metodológico — Fenómeno de investigación</p>
+
+  <p class="cierre-fenomeno">El fenómeno que explica toda la línea de tiempo es la <strong>pérdida progresiva e irreversible de la cultura material y del saber hacer del oficio pesquero artesanal de Mar del Plata</strong>, en el momento preciso en que esa cultura está siendo reconocida como patrimonio pero no ha sido recuperada, resignificada ni transmitida por ningún sistema de diseño que la proyecte hacia el futuro.</p>
+
+  <p class="cierre-pregunta-label">¿Qué proceso de transformación justifica un Proyecto de Graduación en Diseño Textil?</p>
+  <p class="cierre-justificacion">La transición de una identidad portuaria <em>vivida</em> hacia una identidad portuaria <em>recordada</em> genera una vacancia crítica: existe una cultura material rica —colores, texturas, materiales, herramientas, indumentaria, símbolos— que está desapareciendo sin haber sido codificada en un lenguaje textil contemporáneo. Un Proyecto de Graduación en Diseño Textil tiene la oportunidad —y la urgencia— de construir ese puente entre la memoria del oficio y la producción material del presente, antes de que los últimos portadores de ese saber dejen de existir.</p>
+</div>
+
+
+<!-- BIBLIOGRAFÍA -->
+<section class="biblio">
+  <h2>Fuentes y referencias</h2>
+  <p>Favero, B. <em>La Pequeña Italia. Una comunidad portuaria.</em> EUDEM, Mar del Plata.</p>
+  <p>Mateo, J. <em>Cosechando el mar en lanchas amarillas.</em> Tesis doctoral, Universidad de Barcelona.</p>
+  <p>Pastoriza, E. (dir.) <em>Mar del Plata. Una historia urbana.</em> EUDEM, 2026.</p>
+  <p>Virgili, M. (dir.) <em>Los últimos.</em> Documental. UTN Mar del Plata, 2023–2024.</p>
+  <p>Benseny, G. <em>Patrimonialización y turistificación en Mar del Plata.</em> Nülan-UNMdP, 2026.</p>
+  <p>Scielo Argentina. <em>Pesca y puerto en la ciudad de Mar del Plata: relaciones íntimas entre una actividad económica transformada y un espacio deteriorado.</em> Estudios Socioterritoriales, 2013.</p>
+  <p>Pescare.com.ar. <em>Mar del Plata: un puerto que hizo ciudad, hace 113 años.</em> 24 de febrero de 2026.</p>
+  <p>Confluencia Portuaria. <em>100 años de puerto y mar: la tradición pesquera de Mar del Plata.</em> Enero 2026.</p>
+  <p>Defensoría del Pueblo de General Pueyrredón. Resolución sobre preservación de lanchas amarillas, 2022.</p>
+  <p>La Capital Mar del Plata. <em>El Puerto que se viene: centro comercial y cultural, nuevo perfil productivo.</em> Mayo 2025.</p>
+</section>
+
+<footer class="footer">
+  <p>Marco de Referencia — Identidad Portuaria y Cultura Pesquera de Mar del Plata</p>
+  <p>Proyecto de Graduación · Diseño Textil · 2026</p>
+</footer>
+
+</body>
+</html>
